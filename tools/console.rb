@@ -18,8 +18,7 @@ tacos.add_ingredients(tacos_ingredients)
 jon = User.new("john")
 jon.add_recipe_card(pizza, "11/1", 9)
 
-# jon.add_recipe_card(tacos, "11/2", 6)
-
+# 
 jon.declare_allergy(tomato)
 
 kevin = User.new("Kevin")
@@ -28,6 +27,8 @@ kevin.declare_allergy(cheese)
 kevin.add_recipe_card(tacos, "11/3", 5)
 
 mark = User.new("marc")
+
+mark.declare_allergy(cheese)
 
 
 binding.pry

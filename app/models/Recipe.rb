@@ -1,6 +1,6 @@
 class Recipe
-    attr_reader :ingredient
-    attr_accessor :user, :name
+    attr_reader :ingredient, :user, :name
+     
 
     @@all = []
 
@@ -22,8 +22,13 @@ class Recipe
     def self.most_popular
         #list of recipe cards
         #find most repeated "recipe" attribute
-        popular = RecipeCard.all.max{|a, b| a.count <=> b.count}
-        popular.recipe
+        # popular = RecipeCard.all.max_by{|popular| RecipeCard.count}
+        # popular.recipe
+        popular = RecipeCard.all.inject(Hash.new(0)) do |card,count|
+            card[count] += 1
+            card
+        end
+        RecipeCard.all.max_by{|num| popular[num]}.recipe
     end
 
     def allergens

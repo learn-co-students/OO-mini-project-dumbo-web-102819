@@ -1,6 +1,6 @@
 class RecipeCard
 
-    attr_accessor :date, :rating, :user, :recipe 
+    attr_reader :date, :rating, :user, :recipe 
     @@all = []
 
 
