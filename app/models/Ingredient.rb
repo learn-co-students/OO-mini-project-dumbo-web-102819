@@ -8,6 +8,7 @@ class Ingredient
     end
 
     def self.most_common_allergen
+      
     end
 
     def self.all
