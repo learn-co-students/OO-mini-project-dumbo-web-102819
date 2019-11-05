@@ -13,7 +13,7 @@ class Recipe
         @@all
     end
 
-    def ingredients 
+    def ingredients
 
         recipe_ingr_list = RecipeIngredient.all.select {|food| food.recipe == self}
         recipe_ingr_list.map {|food|food.ingredient}
@@ -27,15 +27,18 @@ class Recipe
     end
 
     def allergens
-    end
+        allergies = Allergy.all.map{|allergy| allergy.ingredient}
+        this_recipe = self.ingredients
+        # binding.pry
+        allergies.select{|item| this_recipe.include?(item)}
+      end
 
     def add_ingredients(ingredient_list)
         ingredient_list.map {|item| RecipeIngredient.new(item,self) }
-        
     end
 
-    
 
-    
+
+
 
 end
